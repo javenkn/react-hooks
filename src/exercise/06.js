@@ -16,7 +16,7 @@ import {
 
 function PokemonInfo({pokemonName}) {
   const [{pokemon, status, error}, setState] = React.useState({
-    status: pokemonName ? 'idle' : 'pending',
+    status: pokemonName ? 'pending' : 'idle',
     pokemon: null,
     error: null,
   })
@@ -77,6 +77,7 @@ function App() {
         <ErrorBoundary
           FallbackComponent={ErrorFallback}
           onReset={() => setPokemonName('')}
+          resetKeys={[pokemonName]}
         >
           <PokemonInfo pokemonName={pokemonName} />
         </ErrorBoundary>
